@@ -22,7 +22,7 @@ public class SearchUtil {
 	public static List<Product> search(String keyWord) {
 		Document doc;
 		try {
-			doc = Jsoup.connect("https://search.jd.com/Search?keyword=哈曼卡顿音响&enc=utf-8")
+			doc = Jsoup.connect("https://search.jd.com/Search?keyword="+ keyWord +"&enc=utf-8")
 					.userAgent("Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2").get();
 			List<BigDecimal> prices = ((List<String>)doc.select("div.p-price strong i").eachText()).stream().map(p -> new BigDecimal(p)).collect(Collectors.toList());
 			List<String> names = doc.select("div.p-name.p-name-type-2 a").eachAttr("title");
