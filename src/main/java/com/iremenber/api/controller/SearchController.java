@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.iremenber.api.vo.Product;
-import com.iremenber.api.webmagic.SearchUtil;
+import com.iremenber.api.search.SearchUtil;
+import com.iremenber.api.vo.Mall;
 
 @RestController
 public class SearchController {
-    
+	private SearchUtil searchUtil;
     @RequestMapping(value="/search",method=RequestMethod.GET)
-    public List<Product> search(@RequestParam(name="keyWord") String keyWord){
-		return SearchUtil.search(keyWord);
+    public List<Mall> search(@RequestParam(name="keyWord") String keyWord){
+		return searchUtil.search(keyWord);
     }
 }
