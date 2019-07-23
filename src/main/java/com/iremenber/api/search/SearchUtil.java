@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.iremenber.api.vo.Mall;
 
-
+@Component
 public class SearchUtil {
 	@Autowired
 	private List<Searcher> searchers;
