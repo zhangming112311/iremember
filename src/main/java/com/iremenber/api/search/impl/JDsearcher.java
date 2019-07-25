@@ -28,10 +28,16 @@ public class JDsearcher implements Searcher{
 			List<Product> products = doc.select("#J_goodsList li").stream().map( (Element e) -> {
 					Product p = new Product();
 					String price = e.select("div.p-price strong i").text();
-					if(StringUtils.isNoneBlank(price)) {
-						p.setPrice(new BigDecimal(price));
+					if(StringUtils.isNotBlank(price)) {
+						p.setPrice(new BigDecimal(price.trim()));
+					}else {
+						price = e.select("div.data-price strong").attr("data-price");
+						if(StringUtils.isNotBlank(price)) {
+							p.setPrice(new BigDecimal(price.trim()));
+						}
 					}
 					p.setName(e.select("div.p-name.p-name-type-2 a").attr("title"));
+					p.setImg(e.select("img[source-data-lazy-img]").attr("source-data-lazy-img"));
 					return p;
 				}).collect(Collectors.toList());
 			return Mall.getJDMall(products);

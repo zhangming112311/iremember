@@ -25,7 +25,7 @@ public class TMALLsearcher  implements Searcher{
 			List<String> names = doc.select("div.product p.productTitle a").eachText();
 			AtomicInteger i = new AtomicInteger(0);
 			return Mall.getTMall(names.stream().map((String name) ->{ 
-				Product p = new Product(name,prices.get(i.getAndIncrement()));
+				Product p = new Product(name,prices.get(i.getAndIncrement()),null);
 				return p;
 			}).collect(Collectors.toList()));
 		} catch (IOException e) {
