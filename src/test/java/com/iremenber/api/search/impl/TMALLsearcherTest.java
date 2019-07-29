@@ -21,7 +21,7 @@ public class TMALLsearcherTest {
 	
 	@Test
 	public void testSearch() {
-		Mall mall = searcher.search("哈曼卡顿音响");
+		Mall mall = searcher.search("索尼");
 		System.out.println(JSON.toJSONString(mall));
 		assertTrue(StringUtils.isNoneBlank(mall.getName()));
 		assertTrue(CollectionUtils.isNotEmpty(mall.getProducts()));;

@@ -23,15 +23,6 @@ public class TMALLsearcher  implements Searcher{
 		try {
 			Document doc = Jsoup.connect("https://list.tmall.com/search_product.htm?q="+ keyWord)
 					.userAgent("Mozilla/5.0 (Windows NT 6.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2").get();
-//			List<BigDecimal> prices = ((List<String>)doc.select("div.product p.productPrice em").eachAttr("title")).stream().map(p -> new BigDecimal(p)).collect(Collectors.toList());
-//			productImg-wrap img  src
-//			List<String> names = doc.select("div.product p.productTitle a").eachText();
-//			AtomicInteger i = new AtomicInteger(0);
-//			return Mall.getTMall(names.stream().map((String name) ->{ 
-//				Product p = new Product(name,prices.get(i.getAndIncrement()),null);
-//				return p;
-//			}).collect(Collectors.toList()));
-			
 			
 			return Mall.getTMall(doc.select("div.product").stream().map( (Element e) -> {
 				Product p = new Product();
@@ -40,7 +31,12 @@ public class TMALLsearcher  implements Searcher{
 					p.setPrice(new BigDecimal(price.trim()));
 				}
 				p.setName(e.select("p.productTitle a").text());
-				p.setImg(e.select(".productImg-wrap img").attr("src"));
+				
+				String img = e.select(".productImg-wrap img").attr("src");
+				if(StringUtils.isBlank(img)) {
+					img = e.select(".productImg-wrap img").attr("data-ks-lazyload");
+				}
+				p.setImg(img);
 				return p;
 			}).collect(Collectors.toList()));
 		} catch (IOException e) {
