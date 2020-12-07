@@ -256,7 +256,7 @@ public class Review {
     }
 
     public static void newplan(){
-        LocalDate date = LocalDate.of(2020,12,11);
+        LocalDate date = LocalDate.of(2020,12,8);
         Map<String,Set<String>> map = new TreeMap<>();
 
         for(int i = 1 ;i <= 100 ; i++){
