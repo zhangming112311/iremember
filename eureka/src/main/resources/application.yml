@@ -1,5 +1,8 @@
 spring:
   application:
     name: eureka
-  config:
+  cloud:
+    config:
       import: optional:configserver:http://config:8071
+      request-connect-timeout: 100000
+      
