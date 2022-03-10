@@ -17,7 +17,7 @@ public class UserController {
 	@Resource
 	UserService userService;
 	
-	@GetMapping("user/{id}")
+	@GetMapping("/user/{id}")
 	public UserVO getUser(@PathVariable int id) {
 		return userService.getUser(id);
 	}
