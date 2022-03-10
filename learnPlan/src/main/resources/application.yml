@@ -1,3 +1,5 @@
 spring:
   application:
     name: learnPlan
+  config:
+    import: optional:configserver:http://182.61.45.76:8071

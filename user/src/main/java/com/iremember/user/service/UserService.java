@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,8 +20,10 @@ public class UserService {
 
 	@Resource
 	LearnPlanFeign learnPlanFeign;
+	
 	@Resource
 	RestTemplate restTemplate;
+	
 	public UserVO getUser(int id) {
 		Optional<User> user = userRepository.findById(id);
 		Optional<UserVO> res = user.map(u -> {
@@ -32,6 +35,9 @@ public class UserService {
 		});
 		return res.orElse(null);
 	}
-	
+	public UserVO getUser() {
+//		restTemplate.exchange("", null);
+		return null;
+	}
 	
 }
