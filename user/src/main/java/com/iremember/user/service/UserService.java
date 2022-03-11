@@ -13,7 +13,10 @@ import com.iremember.user.model.User;
 import com.iremember.user.repository.UserRepository;
 import com.iremember.user.vo.UserVO;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UserService {
 	@Resource
 	UserRepository userRepository;
@@ -25,6 +28,7 @@ public class UserService {
 	RestTemplate restTemplate;
 	
 	public UserVO getUser(int id) {
+		log.info("getUser:" + id);
 		Optional<User> user = userRepository.findById(id);
 		Optional<UserVO> res = user.map(u -> {
 			UserVO userVO = new UserVO();
