@@ -11,3 +11,6 @@ spring:
         initial-interval: 1000
         max-attempts: 10
         max-interval: 2000
+  sleuth:
+    reactor:
+      instrumentation-type: decorate-queues
