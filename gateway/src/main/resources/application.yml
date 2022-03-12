@@ -13,4 +13,6 @@ spring:
         max-interval: 2000
   sleuth:
     reactor:
-      instrumentation-type: decorate-queues
+      instrumentation-type: decorate-queues #这个允许gateway传递trace信息
+    sampler:
+      probability: 1

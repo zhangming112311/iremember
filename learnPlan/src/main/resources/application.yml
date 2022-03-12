@@ -3,3 +3,6 @@ spring:
     name: learnPlan
   config:
     import: optional:configserver:http://192.168.50.181:8071
+  sleuth:
+    sampler:
+      probability: 1
