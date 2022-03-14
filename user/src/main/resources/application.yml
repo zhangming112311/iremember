@@ -3,6 +3,11 @@ spring:
     name: user
   config:
     import: optional:configserver:http://192.168.50.181:8071 
+  cloud:
+    config:
+     uri: http://192.168.50.181:8071
+     name: config
+     password: SPRINGSECURITYUSERPASSWORD
   sleuth:
     sampler:
       probability: 1
