@@ -1,8 +1,15 @@
 spring:
   application:
     name: learnPlan
+#  config:
+#    import: optional:configserver:http://192.168.50.181:8071 
   config:
-    import: optional:configserver:http://192.168.50.181:8071
+    import: 'optional:configserver:' 
+  cloud:
+    config:
+     uri: http://192.168.50.181:8071
+     username: config
+     password: SPRINGSECURITYUSERPASSWORD
   sleuth:
     sampler:
       probability: 1
