@@ -1,0 +1,14 @@
+#							key_name					  密码           private_key		    密码
+#keytool -genkeypair -alias zhangming -keyalg RSA -keypass zm@474577048 -keystore zhangming.jks -storepass zm@474577048
+#keytool -list -rfc --keystore zhangming.jks | openssl x509 -inform pem -pubkey
+
+
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjVN6MDzeDdTEirx7+7C2
+G3dntJmb3K8WYyFyWS8H2VOxEKoO9p3N6W2iI95w+UhYPsWvvAdaa24/BGf4malh
+H4AOCiIqTcB6XBA67/gRjb/vRkR53d2JGrdQXpWceUSILHPfyxi9p9b7OMDD0MhC
+ITjQzqpQu0TzxmA4Vs5df0D5FlHlPQzLe7atxFr6n0I35xFSNxDeEpASrg53FIo/
+YuKNogXYa+gpfSYuWwGyITq9u1ars0Ls5WU27YKZ4nhiq/khQ7eFLOp0/0pzwKi4
+Y0Kflh2Ylyw+qyQp196VQk9wpK/Ywjf2LeNY6meEMT+TcsTvRNYbNm7cVlXB4uiL
+8wIDAQAB
+-----END PUBLIC KEY-----
