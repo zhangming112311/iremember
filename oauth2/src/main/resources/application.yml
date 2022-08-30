@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://192.168.50.181:3306/oauth2
+    username: zhangming
+    password: zm@474577048
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -13,3 +13,13 @@ spring:
   sleuth:
     sampler:
       probability: 1
+security:
+  oauth2:
+    resource:
+      id: oauth2-resource
+      jwt:
+        key-uri: http://localhost:8080/oauth/token_key
+    client:
+      client-id: resourceServer
+      client-secret: resourceServersecret
+      access-token-uri: http://localhost:8080/oauth/token

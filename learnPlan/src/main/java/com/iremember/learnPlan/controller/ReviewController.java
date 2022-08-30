@@ -2,6 +2,7 @@ package com.iremember.learnPlan.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class ReviewController {
 	
 	@GetMapping("/{userId}")
 	public String getReview(@PathVariable("userId") int userId) {
+		
 		return reviewService.getReview(userId);
 	}
 }
